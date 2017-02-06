@@ -112,8 +112,7 @@ class AbmeldungActivity extends Activity{
     abmDao.insert(abmeldeDaten)
 
     val hwsDao = db.mkHwsDao()
-    hwsDao.deleteById(person_id)
-    hwsDao.insert(hwsDaten)
+    hwsDao.update(hwsDaten, person_id)
   }
 
   def gotoNext(view:View): Unit ={

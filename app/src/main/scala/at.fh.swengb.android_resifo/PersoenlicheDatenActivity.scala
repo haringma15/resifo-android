@@ -193,8 +193,7 @@ class PersoenlicheDatenActivity extends Activity{
     val persDaten: PersoenlicheDaten = PersoenlicheDaten(nachname, vorname, nachnameVorher, gebDatum, gebOrt, geschlecht, religion, famStand, staat)
 
     val persDao = db.mkPersDao()
-    persDao.deleteById(person_id)
-    persDao.insert(persDaten)
+    persDao.update(persDaten, person_id)
   }
 
   def gotoNext(view:View): Unit ={
@@ -204,6 +203,7 @@ class PersoenlicheDatenActivity extends Activity{
       updateData(view)
       if (doubleCheck == "update2"){
         val i = new Intent(this, classOf[EntscheidungActivity])
+        i.putExtra("person_id", fetchPersonId())
         finish()
         startActivity(i)
       }

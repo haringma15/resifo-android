@@ -128,8 +128,7 @@ class AnmeldungActivity extends Activity{
     if (hws == "ja") {
       val hwsDaten: HauptwohnsitzDaten = HauptwohnsitzDaten(person_id, strasse, hausnummer, stiege, tuer, plz, ort, bundesland)
       val hwsDao = db.mkHwsDao()
-      hwsDao.deleteById(person_id)
-      hwsDao.insert(hwsDaten)
+      hwsDao.update(hwsDaten, person_id)
     }
   }
 

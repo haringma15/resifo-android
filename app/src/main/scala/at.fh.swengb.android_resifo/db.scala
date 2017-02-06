@@ -75,6 +75,8 @@ case class SqlitePersDao(db: SQLiteDatabase) extends BaseDao[PersoenlicheDaten]{
   }
 
   def deleteById(id: Int): Int =  db.delete("person", "person_id = ?", Array(id.toString))
+
+  def update(p: PersoenlicheDaten, id: Int): Int = db.update("person", mkContentValues(p), "person_id =? ", Array(id.toString))
 }
 
 case class SqliteAnmDao(db: SQLiteDatabase) extends BaseDao[AnmeldeDaten]{
@@ -115,6 +117,7 @@ case class SqliteAnmDao(db: SQLiteDatabase) extends BaseDao[AnmeldeDaten]{
 
   def deleteById(id: Int): Int = db.delete("anmeldung", "person_id = ?", Array(id.toString))
 
+  def update(p: AnmeldeDaten, id: Int): Int = db.update("anmeldung", mkContentValues(p), "person_id =? ", Array(id.toString))
 }
 
 case class SqliteHwsDao(db: SQLiteDatabase) extends BaseDao[HauptwohnsitzDaten]{
@@ -149,6 +152,7 @@ case class SqliteHwsDao(db: SQLiteDatabase) extends BaseDao[HauptwohnsitzDaten]{
 
   def deleteById(id: Int): Int = db.delete("hauptsitz", "person_id = ?", Array(id.toString))
 
+  def update(p: HauptwohnsitzDaten, id: Int): Int = db.update("hauptsitz", mkContentValues(p), "person_id =? ", Array(id.toString))
 }
 
 case class SqliteAbmDao(db: SQLiteDatabase) extends BaseDao[AbmeldeDaten]{
@@ -185,6 +189,7 @@ case class SqliteAbmDao(db: SQLiteDatabase) extends BaseDao[AbmeldeDaten]{
 
   def deleteById(id: Int): Int = db.delete("abmeldung", "person_id = ?", Array(id.toString))
 
+  def update(p: AbmeldeDaten, id: Int): Int = db.update("abmeldung", mkContentValues(p), "person_id =? ", Array(id.toString))
 }
 
 case class SqliteFremDao(db: SQLiteDatabase) extends BaseDao[FremdeDaten]{
@@ -214,6 +219,7 @@ case class SqliteFremDao(db: SQLiteDatabase) extends BaseDao[FremdeDaten]{
 
   def deleteById(id: Int): Int = db.delete("fremde", "person_id = ?", Array(id.toString))
 
+  def update(p: FremdeDaten, id: Int): Int = db.update("fremde", mkContentValues(p), "person_id =? ", Array(id.toString))
 }
 
 trait BaseDao[T]{

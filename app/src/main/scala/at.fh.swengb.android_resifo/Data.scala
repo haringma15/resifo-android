@@ -15,8 +15,8 @@ class Data {
 
     dataMap = dataMap + ("person" -> fillPersDaten(db, i))
     dataMap = dataMap + ("hauptwohnsitz" -> fillHwsDaten(db, i))
-    dataMap = dataMap + ("anmeldung" -> fillAnmeldeDaten(db, i))
-    dataMap = dataMap + ("abmeldung" -> fillAbmeldeDaten(db, i))
+ //   dataMap = dataMap + ("anmeldung" -> fillAnmeldeDaten(db, i))
+ //   dataMap = dataMap + ("abmeldung" -> fillAbmeldeDaten(db, i))
     dataMap
   }
 
